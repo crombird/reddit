@@ -1,0 +1,30 @@
+# fly.toml file generated for crombird-reddit on 2021-11-11T12:39:16+01:00
+
+app = "crombird-reddit"
+
+[deploy]
+  strategy = "immediate"
+
+[env]
+  API_ENDPOINT = "https://apiv2.crom.avn.sh/graphql"
+  AUTH_ENDPOINT = "https://apiv2.crom.avn.sh/auth/token"
+  METRICS_PORT = "9091"
+
+[metrics]
+  port = 9091
+  path = "/metrics"
+
+[[restart]]
+  policy = "always"
+  retries = 999999
+  processes = ["app"]
+
+[checks]
+  [checks.app_running]
+    grace_period = "5s"
+    interval = "15s"
+    method = "get"
+    path = "/metrics"
+    port = 9091
+    timeout = "10s"
+    type = "http"
