@@ -20,6 +20,7 @@ COMMENT_SUBREDDITS = [
     "dankmemesfromsite19",
     "nuscp",
     "okbubbyredacted",
+    "powerscp",
     "okbuddyredacted",
     "scp",
     "scp682",
